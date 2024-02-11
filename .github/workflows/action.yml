@@ -13,13 +13,11 @@ jobs:
     steps:
       - name: Checking out
         uses: actions/checkout@v2
-
-      - name: Setup Java Development Kits built by Oracle
-        uses: oracle-actions/setup-java@v1.3.3
+            # Setup java 17 to be default (sonar-scanner requirement as of 5.x)
+      - uses: actions/setup-java@v3
         with:
-          release: 17
-          version: 17
-          install: true
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
 
       - name: Cache Maven packages
         uses: actions/cache@v2
@@ -29,7 +27,11 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Sonar Scan
-        uses: sijomc/sonarscan-action@1.1
-        with:
-          host: http://15.207.87.7
-          login: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
+        uses: warchant/setup-sonar-scanner@v7
+      - name: SonarQube Scan
+        run: sonar-scanner
+           -Dsonar.host.url=http://15.207.87.7
+           -Dsonar.login=sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
+           -Dsonar.projectKey= 'AEM_PROJECT1'
+           -Dsonar.sources=$GITHUB_WORKSPACE
+        
