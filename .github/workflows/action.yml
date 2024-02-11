@@ -32,6 +32,6 @@ jobs:
         run: sonar-scanner
            -Dsonar.host.url=http://15.207.87.7
            -Dsonar.login=sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
-           -Dsonar.projectKey= 'AEM_PROJECT1'
+           -Dsonar.projectKey= AEM_PROJECT1
            -Dsonar.sources=$GITHUB_WORKSPACE
         
