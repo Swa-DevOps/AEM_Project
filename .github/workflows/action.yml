@@ -25,9 +25,10 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-          
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
+
+    - name: Sonar Scan
+      uses: sijomc/sonarscan-action@1.1
       with:
         host: http://15.207.87.74:9000/
+        projectKey: AEM_PROJECT1
         login: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
