@@ -6,8 +6,17 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  sonarqube:
+    name: SonarQube Trigger
     runs-on: ubuntu-latest
-
     steps:
-    -uses: actions/checkout@v2
+    - name: Checking out
+      uses: actions/checkout@main
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
+      with:
+        host: http://15.207.87.74:9000/
+        login: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
