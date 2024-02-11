@@ -9,7 +9,7 @@ on:
 jobs:
   sonarqube:
     name: SonarQube Trigger
-    runs-on: ip-172-31-33-200
+    runs-on: self-hosted
     steps:
       - name: Checking out
         uses: actions/checkout@v2
