@@ -19,12 +19,10 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v5
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+          maven-version: 3.9.6
 
       - name: Sonar Scan
         uses: warchant/setup-sonar-scanner@v7
