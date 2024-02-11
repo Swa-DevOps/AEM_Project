@@ -31,4 +31,3 @@ jobs:
       with:
         host: http://15.207.87.74:9000/
         login: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
