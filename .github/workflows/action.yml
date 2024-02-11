@@ -31,4 +31,5 @@ jobs:
       - name: Sonar Scan
         uses: sijomc/sonarscan-action@1.1
         with:
-          host: 'http://15.207.87.7
+          host: http://15.207.87.7
+          login: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
