@@ -10,13 +10,28 @@ jobs:
     name: SonarQube Trigger
     runs-on: ubuntu-latest
     steps:
+    
     - name: Checking out
       uses: actions/checkout@main
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+        
+    - name: Set up JDK 17
+      uses: actions/setup-java@v1
+      with:
+          java-version: 17
+
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+          
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@v1.2.0
       with:
         host: http://15.207.87.74:9000/
         login: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
