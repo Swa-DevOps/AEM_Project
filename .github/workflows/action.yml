@@ -18,8 +18,10 @@ jobs:
       
       - name: Build and analyze
         env:
-          SONAR_TOKEN: squ_ed5dcee470eece11875fa0b612b73b0baaecae37
-          SONAR_HOST_URL: http://15.207.87.74:9000/
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
+          export JAVA_HOME=/opt/java/jdk-17.0.2
+          export PATH=/opt/java/jdk-17.0.2/bin:$PATH
           export PATH=/opt/maven/apache-maven-3.9.6/bin/:$PATH
-          mvn clean install sonar:sonar
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aem-test -Dsonar.projectName='aem-test'
