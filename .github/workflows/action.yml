@@ -29,7 +29,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          SONAR_TOKEN: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
+          SONAR_TOKEN: squ_ed5dcee470eece11875fa0b612b73b0baaecae37
           SONAR_HOST_URL: http://15.207.87.74:9000/
         run: |
           export PATH=/opt/maven/apache-maven-3.9.6/bin/:$PATH
