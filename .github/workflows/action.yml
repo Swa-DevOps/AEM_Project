@@ -31,4 +31,6 @@ jobs:
         env:
           SONAR_TOKEN: sqa_e286f9c1e4a5cc63b1ece9332f385b81cb057822
           SONAR_HOST_URL: http://15.207.87.74:9000/
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        run: |
+          export PATH=/opt/maven/apache-maven-3.9.6/bin/:$PATH
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
