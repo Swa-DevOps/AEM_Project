@@ -17,7 +17,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          export JAVA_HOME=/opt/java/jdk-17.0.2
+          export JAVA_HOME=JAVA_HOME_17_X64
           export PATH=/opt/java/jdk-17.0.2/bin:$PATH
           export PATH=/opt/maven/apache-maven-3.9.6/bin/:$PATH
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aem-test -Dsonar.projectName='aem-test'
