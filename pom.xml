@@ -128,13 +128,12 @@
                         <artifactId>maven-release-oddeven-policy</artifactId>
                         <version>3.0.0-M5</version>
                     </dependency>
-<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.cli/sonar-scanner-cli -->
+			<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
 <dependency>
-    <groupId>org.sonarsource.scanner.cli</groupId>
-    <artifactId>sonar-scanner-cli</artifactId>
-    <version>5.0.1.3006</version>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.1.2184</version>
 </dependency>
-
 			<!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
 <dependency>
     <groupId>org.jacoco</groupId>
